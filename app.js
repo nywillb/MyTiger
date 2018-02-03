@@ -66,7 +66,7 @@ app.post('/myTiger', function (req, res) {
 					}
 				}
 			}
-			res.json({ "speech": reply + "Is there anything else I can help with?", "displayText": displayText + "Is there anything else I can help with?"})
+			res.json({ "speech": reply + " Is there anything else I can help with?", "displayText": displayText + " Is there anything else I can help with?"})
 		});
 	} else if (intent === "friday") {
 		var date = req.body.result.parameters.date;
@@ -92,7 +92,7 @@ app.post('/myTiger', function (req, res) {
 		})
 	} else if (intent === "metadata") {
 		reply = "Hi! I'm Dalton MyTiger Server Version " + pjson.version + ".";
-		res.json({ "speech": reply + "Is there anything else I can help with?", "displayText": reply + "Is there anything else I can help with?" });
+		res.json({ "speech": reply + " Is there anything else I can help with?", "displayText": reply + " Is there anything else I can help with?" });
 	}
 })
 
