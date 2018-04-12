@@ -34,13 +34,13 @@ app.post('/myTiger', function (req, res) {
 			body = body.replace("menu items", "menu_items");
 			body = body.replace("meal periods", "meal_periods");
 			if (JSON.parse(body).meal_periods[0] === undefined) {
-				reply = "It doesn't seem like there's lunch that day."
+				reply = "It doesn't seem like there's lunch that day. Is there anything else I can help you with?"
 				displayText = reply;
 			} else {
 				lunch = JSON.parse(body).meal_periods[0].menu_items;
 				records = JSON.parse(body).records;   
 				if(lunch[0] === undefined) {
-					reply = "It doesn't seem like there's lunch that day."
+					reply = "It doesn't seem like there's lunch that day. Isb"
 					displayText = reply;
 				} else {
 					if(records === 0){
@@ -88,7 +88,7 @@ app.post('/myTiger', function (req, res) {
 					reply = fridayDate.format('dddd, MMMM Do YYYY') + " is a Friday " + friday + ".";
 				}
 			} else reply = "The date specified doesn't seem to be a friday.";
-			res.json({ "speech": reply, "displayText": reply });
+			res.json({ "speech": reply + " Is there anything else I can help you with?", "displayText": reply + " Is there anything else I can help you with?"});
 		})
 	} else if (intent === "metadata") {
 		reply = "Hi! I'm Dalton MyTiger Server Version " + pjson.version + ".";
