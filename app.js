@@ -97,7 +97,7 @@ app.post('/myTiger', function (req, res) {
 })
 
 app.listen(process.env.PORT || 3000, function () {
-	console.log('MyTiger verison ' + pjson.version + ' listening on port 3000!')
+	console.log('MyTiger version ' + pjson.version + ' listening on port ' + (process.env.PORT || 3000) + '!')
 	request('https://api-v2.myhomework.space/auth/csrf', function (error, response, body) {
 		body = JSON.parse(body);
 		mhsToken = body.token;
