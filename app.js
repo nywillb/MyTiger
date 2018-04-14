@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const pjson = require('./package.json')
 const moment = require('moment');
 const app = express();
+
+var lunch = require("./lunch");
+
 var request = require('request');
 
 var request = request.defaults({jar: true});
@@ -20,53 +23,47 @@ app.post('/myTiger', function (req, res) {
 	var reply = null;
 
 	if (intent === "lunch") {
-		var date = req.body.result.parameters.date.split("-");
-		if(req.body.result.parameters.date === "") {
-			date = moment();
-			date = date.format('YYYY-MM-DD')
-			date = date.split("-");
+		var date = moment();
+		if (req.body.result.parameters.date) {
+			date = moment(req.body.result.parameters.date, "YYYY-MM-DD");
 		}
-		const year = date[0].split("20")[1]; 
-		const month = date[1]; 
-		const day = date[2];
-		const url = 'http://206.82.192.168/v2/menu/' + month + '/' + day + '/' + year + '/app/bigdalton?key=3D895734-2271-4563-8332-AB943B2E9CAF&siteID=538277448587fc0fd60006fd';
-		request(url, function (error, response, body) {
-			body = body.replace("menu items", "menu_items");
-			body = body.replace("meal periods", "meal_periods");
-			if (JSON.parse(body).meal_periods[0] === undefined) {
-				reply = "It doesn't seem like there's lunch that day. Is there anything else I can help you with?"
-				displayText = reply;
-			} else {
-				lunch = JSON.parse(body).meal_periods[0].menu_items;
-				records = JSON.parse(body).records;   
-				if(lunch[0] === undefined) {
-					reply = "It doesn't seem like there's lunch that day. Isb"
-					displayText = reply;
-				} else {
-					if(records === 0){
-						reply = "I can't give you information about lunch when there is no school."
-						displayText = reply;
-					} else {
-						reply = "Lunch is " + lunch[0].name;
-						for(var i = 1; i < 4; i++){
+
+		lunch.getLunchForDate(date, function(lunch) {
+			var reply = "";
+			var displayText = "";
+			if (lunch) {
+				displayText = reply = "Lunch is: ";
+				for (var i = 0; i < lunch.length; i++) {
+					var itemName = lunch[i].name;
+
+					if (i > 0) {
+						displayText += ", ";
+					}
+					if (i == (lunch.length - 1)) {
+						displayText += "and ";
+					}
+					displayText += itemName;
+
+					if (i < 3) {
+						if (i > 0) {
 							reply += ", ";
-							if(i == 3) {
-								reply += "and "
-							}
-							reply += lunch[i].name;
 						}
-						displayText =  "Lunch is " + lunch[0].name;
-						for(var i = 1; i < lunch.length; i++){
-							displayText += ", ";
-							if(i == lunch.length - 1) {
-								displayText += "and "
-							}
-							displayText += lunch[i].name;
+						if (i == 2) {
+							reply += "and ";
 						}
+						reply += itemName;
 					}
 				}
+				displayText += ".";
+				reply += ".";
+			} else {
+				displayText = reply = "It doesn't seem like there's lunch that day.";
 			}
-			res.json({ "speech": reply + " Is there anything else I can help with?", "displayText": displayText + " Is there anything else I can help with?"})
+
+			res.json({
+				speech: reply + " Is there anything else I can help with?",
+				displayText: displayText + " Is there anything else I can help with?"
+			});
 		});
 	} else if (intent === "friday") {
 		var date = req.body.result.parameters.date;
