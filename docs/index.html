@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Dalton MyTiger</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/new-age.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Dalton MyTiger</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#download">Get Started</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#features">Features</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+          <div class="header-content mx-auto">
+            <h1 class="mb-5">MyTiger is a chatbot that helps you with simple tasks your school day.</h1>
+            <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Get Started</a>
+            <div class="hidden" id="try-typing">
+              <br>Try typing <a href="#" id="type-contents">"What's for lunch on monday?"</a><br>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+          <div class="device-container">
+            <div class="device-mockup iphone6_plus portrait white">
+              <div class="device">
+                <div class="screen">
+                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+
+                  <iframe id="demo" width="286.2" height="503.883" frameborder="0" src="https://console.dialogflow.com/api-client/demo/embedded/mytiger">
+                  </iframe>
+
+
+                </div>
+                <!-- <div class="button">
+                  You can hook the "home button" to some JavaScript events or just remove it
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="download bg-primary text-center" id="download">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h3 class="lg">Start Talking!</h2>
+          <h2>Text <a class="tel:6672184437">(667) 21-TIGER</a></h3>
+          <p class="small">(That's (667) 21-84437)</p>
+          <div class="badges">
+              <p>Don't want to text MyTiger?</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#moreWaysModal">See other ways of talking</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+<div class="modal fade" id="moreWaysModal" tabindex="-1" role="dialog" aria-labelledby="moreWaysModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="moreWaysModalLabel">More ways to talk to MyTiger</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          .<table class="table table-hover table-responsive" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="communication-method">
+                        <small>SMS (Text Message)</small>
+                        <h3>(667) 218-4437</h3>
+                    </div>
+                    <img class="communication-icon" src="img/messages.png">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                      <div class="communication-method">
+                          <small>Google Assistant</small>
+                          <h3>"Ok Google,<br />Talk to Dalton MyTiger"</h3>
+                      </div>
+                      <img class="communication-icon" src="img/assistant.png">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                      <div class="communication-method">
+                          <small>Skype</small><br />
+                          <h3><a href='https://join.skype.com/bot/7e7555c8-bc7b-410b-a3a7-84e5bae556fc'><img src='https://dev.botframework.com/Client/Images/Add-To-Skype-Buttons.png'/></a></h3>
+                      </div>
+                      <img class="communication-icon" src="img/skype.png">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                      <div class="communication-method">
+                          <small>Messenger</small><br />
+                          <h3>Coming Soon</h3>
+                      </div>
+                      <img class="communication-icon" src="img/messenger.png">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                      <div class="communication-method">
+                          <small>Twitter</small><br />
+                          <h3>Coming Soon</h3>
+                      </div>
+                      <img class="communication-icon" src="img/twitter.png">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>Features</h2>
+        <p class="text-muted">Check out what you can do with MyTiger!</p>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 my-auto">
+          <div class="device-container">
+            <div class="device-mockup iphone6_plus portrait white">
+              <div class="device">
+                <div class="screen">
+                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                  <iframe id="demo" width="286.2" height="503.883" frameborder="0" src="https://console.dialogflow.com/api-client/demo/embedded/mytiger">
+                  </iframe>
+                </div>
+                <div class="button">
+                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 my-auto">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-screen-smartphone text-primary"></i>
+                  <h3>Always With You</h3>
+                  <p class="text-muted">Dalton MyTiger is always with you, on your phone, however you want to talk to it.</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-cup text-primary"></i>
+                  <h3>Lunch Menu</h3>
+                  <p class="text-muted">Tells you what's for lunch on a given day</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-people text-primary"></i>
+                  <h3>Book Labs<sup class="text-primary">β</sup></h3>
+                  <p class="text-muted">Easily book a lab with any teacher that uses YouCanBookMe.</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-calendar text-primary"></i>
+                  <h3>Friday</h3>
+                  <p class="text-muted">Tells you what friday it is.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="contact bg-primary" id="contact">
+    <div class="container">
+      <h2>We
+        <i class="fa fa-heart"></i>
+        new friends!</h2>
+      <ul class="list-inline list-social">
+        <li class="list-inline-item social-twitter">
+          <a href="#">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-facebook">
+          <a href="#">
+            <i class="fa fa-facebook"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-google-plus">
+          <a href="#">
+            <i class="fa fa-google-plus"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section> -->
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2018 William Barkoff. MIT Licensed.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="#">Privacy</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">Terms</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/new-age.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
