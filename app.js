@@ -31,7 +31,7 @@ app.post('/myTiger', function (req, res) {
 		lunch.getLunchForDate(date, function(lunch) {
 			var reply = "";
 			var displayText = "";
-			if (lunch) {
+			if (lunch != (null || undefined)) {
 				displayText = reply = "Lunch is: ";
 				for (var i = 0; i < lunch.length; i++) {
 					var itemName = lunch[i].name;
@@ -56,8 +56,10 @@ app.post('/myTiger', function (req, res) {
 				}
 				displayText += ".";
 				reply += ".";
-			} else {
+			} else if (lunch == null) {
 				displayText = reply = "It doesn't seem like there's lunch that day.";
+			} else if (lunch == undefined) {
+				displayText = reply = "We're having some issues contacting the server "
 			}
 
 			res.json({
