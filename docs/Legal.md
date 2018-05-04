@@ -15,8 +15,12 @@ Our service (“MyTiger”) collects the following data about you either when yo
 
 * Depending on how you contact MyTiger, your phone number, or any public data or data that you explicitly choose to share from Facebook, Twitter, or Skype.
    * This data is automaticlly provided to us when you use the service. It helps us with feedback and other support. We will only ever share this information with your explict permission.
-* The text that you send to MyTiger. 
-   * We use this data to help train MyTiger to respond requests with users. 
+* The content of the message that you send to MyTiger. 
+  * We use this data to help train MyTiger to respond requests with users. 
+  * We reserve the right to share this data at our disgression.
+* MyTiger's response
+  * We use this data to help train MyTiger to respond requests with users. 
+  * We reserve the right to share this data at our disgression.  
 
 While we try our best, the MyTiger team disclaims all responsibility for data leaks or losses. It is your responsibility to update yourself on this policy, as you may not be notified of changes. If you wish to purge all of your information from our servers, or have any additional questions about this policy, or MyTiger in general, you can contact us at [mytiger@williambarkoff.com](mailto:mytiger@williambarkoff.com) and we will do our best to help you.
 
@@ -26,3 +30,6 @@ As always, thank you for using MyTiger!
 
 **April 26th, 2018**
 Added Original Policy
+
+**May 3rd, 2018**
+Add information regarding who can view the data, and clarify some text
