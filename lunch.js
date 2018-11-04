@@ -9,7 +9,9 @@ module.exports = {
 		const url = 'http://206.82.192.168/v2/menu/' + month + '/' + day + '/' + year + '/app/bigdalton?key=3D895734-2271-4563-8332-AB943B2E9CAF&siteID=538277448587fc0fd60006fd';
 
 		request(url, function(error, response, body) {
-			if(body != undefined) {
+			if(error) {
+				console.error(error);
+			} else if (body != undefined) {
 				var bodyObject = JSON.parse(body);
 				if (bodyObject["meal periods"][0] && bodyObject["records"] != 0) {
 					var mealPeriod = bodyObject["meal periods"][0];

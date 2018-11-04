@@ -17,6 +17,46 @@ app.get('/', function (req, res) {
 	res.send('This server is running ' + pjson.name +  ' version ' + pjson.version + ".");
 })
 
+app.get('/data', function (req, res) {
+	let response = [];
+	lunch.getLunchForDate(moment(), (lunch) => {
+		console.log("LUNCH SUCCESS")
+		let lunchCard = {};
+		lunchCard.icon = "pizza";
+		lunchCard.name = "Lunch Menu"
+		if(lunch == null) {
+			lunchCard.type = "sentence"
+			lunchCard.data = "There's no lunch today."
+		} else if(lunch == undefined) {
+			lunchCard.type = "sentence"
+			lunchCard.data = "We're having trouble contacting the lunch menu server."
+		} else {
+			lunchCard.type = "list";
+			lunchCard.data = lunch;
+		}
+		if(response.length == 2) { res.json(response) }
+	});
+	const friday = moment().day("Friday")
+	const fridayToday = (moment().format("YYYY-MM-DD") == friday.format("YYYY-MM-DD"));
+	const fridayRequestURL = 'https://api-v2.myhomework.space/planner/fridays/get/' + moment().day("Friday").format("YYYY-MM-DD") + '?csrfToken=' + mhsToken
+	request(fridayRequestURL, (error, resp, body) => {
+		console.log("FRIDAY SUCCESS")
+		let fridayCard = {};
+		fridayCard.icon = "calendar";
+		fridayCard.name = "Friday"
+		fridayCard.type = "sentence"
+		body = JSON.parse(body);
+		if(error || body.friday == undefined) {
+			fridayCard.data = "There was an error fetching the friday."
+		} else if (body.friday.index == -1 ) {
+			fridayCard.data = "This week's friday doesn't follow a regular schedule"
+		} else {
+			fridayCard.data = `${fridayToday ? "Today" : "This week's Friday" } is a Friday ${body.friday.index}.`
+		}
+		if(response.length == 2) { res.json(response) }
+	});
+})
+
 app.post('/myTiger', function (req, res) {
 	const intent = req.body.result.metadata.intentName;
 	var displayText = null;
@@ -76,7 +116,6 @@ app.post('/myTiger', function (req, res) {
 		}	
 		var fridayDate = startDate.day("Friday");
 		var fridayRequestURL = 'https://api-v2.myhomework.space/planner/fridays/get/' + fridayDate.format("YYYY-MM-DD") + '?csrfToken=' + mhsToken
-		console.log(fridayRequestURL);
 		request(fridayRequestURL, function (error, response, body) {
 			body = JSON.parse(body);
 			if(body.friday != undefined) {
