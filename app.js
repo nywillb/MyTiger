@@ -20,7 +20,6 @@ app.get('/', function (req, res) {
 app.get('/data', function (req, res) {
 	let response = [];
 	lunch.getLunchForDate(moment(), (lunch) => {
-		console.log("LUNCH SUCCESS")
 		let lunchCard = {};
 		lunchCard.icon = "pizza";
 		lunchCard.name = "Lunch Menu"
@@ -34,13 +33,13 @@ app.get('/data', function (req, res) {
 			lunchCard.type = "list";
 			lunchCard.data = lunch;
 		}
+		response.push(lunchCard);
 		if(response.length == 2) { res.json(response) }
 	});
 	const friday = moment().day("Friday")
 	const fridayToday = (moment().format("YYYY-MM-DD") == friday.format("YYYY-MM-DD"));
 	const fridayRequestURL = 'https://api-v2.myhomework.space/planner/fridays/get/' + moment().day("Friday").format("YYYY-MM-DD") + '?csrfToken=' + mhsToken
 	request(fridayRequestURL, (error, resp, body) => {
-		console.log("FRIDAY SUCCESS")
 		let fridayCard = {};
 		fridayCard.icon = "calendar";
 		fridayCard.name = "Friday"
@@ -53,6 +52,7 @@ app.get('/data', function (req, res) {
 		} else {
 			fridayCard.data = `${fridayToday ? "Today" : "This week's Friday" } is a Friday ${body.friday.index}.`
 		}
+		response.push(fridayCard);
 		if(response.length == 2) { res.json(response) }
 	});
 })
