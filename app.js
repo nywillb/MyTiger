@@ -26,12 +26,20 @@ app.get('/data', function (req, res) {
 		if(lunch == null) {
 			lunchCard.type = "sentence"
 			lunchCard.data = "There's no lunch today."
+			lunchCard.title = "No lunch today"
 		} else if(lunch == undefined) {
 			lunchCard.type = "sentence"
 			lunchCard.data = "We're having trouble contacting the lunch menu server."
+			lunchCard.title = "Error getting lunch"
 		} else {
 			lunchCard.type = "list";
 			lunchCard.data = lunch;
+			if(lunch[0].name == "MEATLESS MONDAY"){
+				lunchCard.title = "Meatless Monday"
+			} else {
+				lunchCard.title = lunch[1].name;
+			}
+			
 		}
 		response.push(lunchCard);
 		if(response.length == 2) { res.json(response) }
@@ -47,10 +55,13 @@ app.get('/data', function (req, res) {
 		body = JSON.parse(body);
 		if(error || body.friday == undefined) {
 			fridayCard.data = "There was an error fetching the friday."
+			fridayCard.title = "Error getting friday"
 		} else if (body.friday.index == -1 ) {
 			fridayCard.data = "This week's friday doesn't follow a regular schedule"
+			fridayCard.title = "Friday doesn't follow a regular schedule"
 		} else {
 			fridayCard.data = `${fridayToday ? "Today" : "This week's Friday" } is a Friday ${body.friday.index}.`
+			fridayCard.title = `Friday ${body.friday.index}`
 		}
 		response.push(fridayCard);
 		if(response.length == 2) { res.json(response) }
